@@ -1,7 +1,7 @@
 from sqlite3 import Connection
 from typing import Dict, Tuple, List
 
-class ActivitieseRepository:
+class ActivitiesRepository:
     def __init__(self, conn: Connection) -> None:
         self.__conn = conn
     
@@ -26,7 +26,7 @@ class ActivitieseRepository:
         cursor = self.__conn.cursor()
         cursor.execute(
             '''
-                SELECT * FROM activity WHERE trip_id = ?
+                SELECT * FROM activities WHERE trip_id = ?
             ''', (trip_id,)
         )
         activities = cursor.fetchall()
